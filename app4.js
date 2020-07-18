@@ -15,7 +15,7 @@ const express         = require("express"),
 
 // Requiring Routes
 const commentRoutes   = require("./routes/comments"),
-      campgrounRoutes = require("./routes/campground")  ,
+      campgroundRoutes = require("./routes/campground")  ,
       indexRoutes     = require("./routes/index");
 
 const database = process.env.DATABASE_URL.replace("<password>",process.env.DATABASE_PASSWORD);
@@ -56,7 +56,7 @@ app.use(function(req , res , next){
 
   app.use("/campgrounds/:id/comments",commentRoutes);
   app.use(indexRoutes);
-  app.use("/campgrounds",campgrounRoutes);
+  app.use("/campgrounds",campgroundRoutes);
 
 app.listen(process.env.PORT,function(){
  console.log("yelp Camp has started!!")

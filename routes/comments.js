@@ -69,8 +69,7 @@ router.get("/new",middleware.isLoggedIn,function(req,res){
  });
 
  // DESTROY COMMENT ROUTE
- router.delete("/:comment_id " ,middleware.checkCommentOwnership, function(req , res){
-   res.send("DESTROY COMMENT ROUTE");
+ router.delete("/:comment_id" ,middleware.checkCommentOwnership, function(req , res){
    Comment.findByIdAndRemove(req.params.comment_id , function(err){
      if(err){
        res.redirect("back");
