@@ -10,14 +10,17 @@ const express         = require("express"),
       seedDB          = require("./seed"),
       User            = require("./models/user"),
       Comment         = require("./models/comment");
+      require('dotenv').config();
+  
 
 // Requiring Routes
 const commentRoutes   = require("./routes/comments"),
       campgrounRoutes = require("./routes/campground")  ,
       indexRoutes     = require("./routes/index");
-       
 
-mongoose.connect("mongodb://localhost:27017/yelp_camp",{ useUnifiedTopology: true ,useNewUrlParser: true});
+const database = process.env.DATABASE_URL.replace("<password>",process.env.DATABASE_PASSWORD);
+
+mongoose.connect(database,{ useUnifiedTopology: true ,useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine","ejs");
 app.use(express.static(__dirname + "/public"))
