@@ -58,6 +58,6 @@ app.use(function(req , res , next){
   app.use(indexRoutes);
   app.use("/campgrounds",campgrounRoutes);
 
-app.listen(3000,function(){
+app.listen(process.env.PORT,function(){
  console.log("yelp Camp has started!!")
 });
